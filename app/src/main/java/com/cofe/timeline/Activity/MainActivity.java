@@ -1,9 +1,11 @@
-package com.cofe.timeline;
+package com.cofe.timeline.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+
+import com.cofe.timeline.R;
 
 public class MainActivity extends AppCompatActivity {
 
