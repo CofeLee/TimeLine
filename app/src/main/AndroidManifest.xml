@@ -17,6 +17,8 @@
         </activity>
 
         <activity android:name=".Activity.StartActivity"/>
+        <activity android:name=".Activity.DrawLineActivity"/>
+        <activity android:name=".Activity.CalculateActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
