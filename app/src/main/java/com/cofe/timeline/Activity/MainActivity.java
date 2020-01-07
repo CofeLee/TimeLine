@@ -14,7 +14,7 @@ import com.cofe.timeline.R;
 public class MainActivity extends AppCompatActivity {
 
     private TextView result;
-    private Button test,to_screenshot,to_drawline,to_calculate;
+    private Button test,to_screenshot,to_drawline,to_calculate,to_slide;
     private boolean canpr = true;
 
     @Override
@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         to_calculate = findViewById(R.id.to_calculate);
         result = findViewById(R.id.result);
         test = findViewById(R.id.test);
+        to_slide = findViewById(R.id.to_slide);
+
 
         to_screenshot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, CalculateActivity.class));
+            }
+        });
+
+        to_slide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SlideActivity.class));
             }
         });
 

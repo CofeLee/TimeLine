@@ -51,4 +51,12 @@
         android:text="计算Demo"
         android:layout_marginTop="20dp"
         />
+
+    <Button
+        android:id="@+id/to_slide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="滑动Demo"
+        android:layout_marginTop="20dp"
+        />
 </LinearLayout>
