@@ -29,10 +29,10 @@
         android:textSize="20dp"/>
 
     <Button
-        android:id="@+id/to_screenshot"
+        android:id="@+id/to_revolve"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="截图Demo"
+        android:text="旋转Demo"
         android:layout_marginTop="20dp"
         />
 

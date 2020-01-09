@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activity.StartActivity"/>
+        <activity
+            android:name=".Activity.RevolveActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"/>
         <activity android:name=".Activity.DrawLineActivity"/>
         <activity android:name=".Activity.CalculateActivity"/>
         <activity android:name=".Activity.SlideActivity"/>
