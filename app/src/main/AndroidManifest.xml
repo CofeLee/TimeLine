@@ -22,6 +22,7 @@
         <activity android:name=".Activity.DrawLineActivity"/>
         <activity android:name=".Activity.CalculateActivity"/>
         <activity android:name=".Activity.SlideActivity"/>
+        <activity android:name=".Activity.YugeActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

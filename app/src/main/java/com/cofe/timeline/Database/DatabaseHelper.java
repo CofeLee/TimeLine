@@ -27,8 +27,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "create table test('no' int,'致密度' double,'r' double,'δr' double,'D.r' double,'γ' double,'χ' double,'Δχ' double,'VEC' double,'ΔH(KJ/mol)' double," +
-                "'ΔS(J/K/mol)' double,'Ω' double,'Λ' double,'D.χ' double,'G' double,'η' double,'δG' double,'D.G' double,'w' double)";
+        String sql = "create table test('id' INTEGER PRIMARY KEY AUTOINCREMENT,'param1' double,'param2' double,'param3' double,'param4' double,'param5' double," +
+                "'param6' double,'param7' double,'param8' double,'param9' double,'param10' double,'param11' double,'param12' double,'param13' double," +
+                "'param14' double,'param15' double,'param16' double,'param17' double,'param18' double)";
         db.execSQL(sql);
     }
 
