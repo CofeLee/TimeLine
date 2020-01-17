@@ -14,7 +14,7 @@ import com.cofe.timeline.R;
 public class MainActivity extends AppCompatActivity {
 
     private TextView result;
-    private Button test,to_revolve,to_drawline,to_calculate,to_slide,to_yuge;
+    private Button test, to_revolve, to_drawline, to_calculate, to_slide, to_yuge, to_menu;
     private boolean canpr = true;
 
     @Override
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         result = findViewById(R.id.result);
         test = findViewById(R.id.test);
         to_slide = findViewById(R.id.to_slide);
+        to_menu = findViewById(R.id.to_menu);
 
 
         to_yuge.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, SlideActivity.class));
+            }
+        });
+
+        to_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MenuActivity.class));
             }
         });
 

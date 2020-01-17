@@ -53,6 +53,14 @@
         />
 
     <Button
+        android:id="@+id/to_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="菜单Demo"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
         android:id="@+id/to_calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
