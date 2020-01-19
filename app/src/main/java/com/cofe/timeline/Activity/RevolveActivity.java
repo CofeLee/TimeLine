@@ -6,14 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.cofe.timeline.Base.BaseActivity;
 import com.cofe.timeline.R;
-import com.cofe.timeline.Screenshot.ScreenShotManager;
 
-public class RevolveActivity extends AppCompatActivity {
+public class RevolveActivity extends BaseActivity {
 
     private Button left, right;
     private int status = 1;

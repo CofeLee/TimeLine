@@ -7,13 +7,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.cofe.timeline.Base.BaseActivity;
 import com.cofe.timeline.R;
 
 import java.text.DecimalFormat;
 
-public class CalculateActivity extends AppCompatActivity {
+public class CalculateActivity extends BaseActivity {
 
     private EditText month_capital, year, total_year, rate;
     private TextView total_money;

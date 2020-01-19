@@ -2,12 +2,11 @@ package com.cofe.timeline.Activity;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.cofe.timeline.Base.BaseActivity;
 import com.cofe.timeline.R;
 import com.cofe.timeline.View.UniformLine;
 
-public class DrawLineActivity extends AppCompatActivity {
+public class DrawLineActivity extends BaseActivity {
 
     private UniformLine mainView;
 

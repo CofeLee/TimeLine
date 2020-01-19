@@ -6,17 +6,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.cofe.timeline.Base.BaseActivity;
 import com.cofe.timeline.R;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends BaseActivity {
 
     private TextView tv2;
     private ViewGroup.MarginLayoutParams params;
     private int top;
     private float y1;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,8 +26,8 @@ public class MenuActivity extends AppCompatActivity {
 
     public void init() {
         tv2 = findViewById(R.id.tv2);
-
         params = (ViewGroup.MarginLayoutParams) tv2.getLayoutParams();
+        initToolbar("菜单Demo");
     }
 
     @Override

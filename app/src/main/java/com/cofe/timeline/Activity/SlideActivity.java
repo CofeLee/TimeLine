@@ -4,14 +4,13 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.cofe.timeline.Base.BaseActivity;
 import com.cofe.timeline.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SlideActivity extends AppCompatActivity {
+public class SlideActivity extends BaseActivity {
 
     private ListView listView;
 

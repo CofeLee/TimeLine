@@ -1,21 +1,24 @@
 package com.cofe.timeline.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.cofe.timeline.Base.BaseActivity;
 import com.cofe.timeline.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private TextView result;
     private Button test, to_revolve, to_drawline, to_calculate, to_slide, to_yuge, to_menu;
     private boolean canpr = true;
+
+    private long exitTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,5 +96,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == event.KEYCODE_BACK) {
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void exit(){
+        if ((System.currentTimeMillis()-exitTime)>2000){
+            Toast.makeText(this,"再按一次退出程序",Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        }else {
+            finish();
+            System.exit(0);
+        }
     }
 }

@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,15 +12,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.cofe.timeline.Base.BaseActivity;
 import com.cofe.timeline.Database.Data;
 import com.cofe.timeline.Database.DatabaseHelper;
 import com.cofe.timeline.R;
 
 import java.util.ArrayList;
 
-public class YugeActivity extends AppCompatActivity implements View.OnClickListener {
+public class YugeActivity extends BaseActivity implements View.OnClickListener {
 
     private Spinner spinner1, spinner2;
     private Button database_button, data_button, getrxy, getrmse;
