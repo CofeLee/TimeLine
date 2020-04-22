@@ -1,0 +1,73 @@
+<div class="scrollable money-exchange deposit-outline" >
+			<div class="scrollable-header">
+				<header class="index_header">  
+					<div id="returnButton" class="go-back" ng-click="goBack()"></div>
+					<div class="header-title ng-hide" ng-show="isShowContent">{{"payment"|translate}}</div>
+				   </header>
+			</div>
+			
+			<div class="scrollable-content ng-hide" ng-show="isShowContent">
+			
+				<div class="items cf ng-hide" style="line-height: 30px;margin-top:5px;" ng-show="rescode!=0">
+					<div class="outline-detail cf">
+						 <h4 style="text-align: center;">{{"paymentfailed"|translate}}</h4>
+					 </div>
+					<div class="outline-detail cf">
+						 <span class="key fl">{{"errorCode"|translate}}</span>
+						 <span class="val fr">{{txnRejectCode}}</span>
+					 </div>
+					<div class="outline-detail cf">
+						<span class="key fl">{{"errorMessage"|translate}}</span>
+						<span class="money-type fr"><app:errorMsg errortype="FOVA" errorcode="<%=msgCode %>" align="left" padChar="0" length="4" defaultValue="No found error message."/></span>
+					 </div>
+				 </div>
+			
+				<div class="items cf" style="line-height: 30px;margin-top:5px;">
+					<div class="outline-detail cf ng-hide" ng-show="rescode==0">
+						 <h4 style="text-align: center;">{{"Payment_Completed"|translate}}</h4>
+					 </div>
+					<div class="outline-detail cf">
+						 <span class="key fl">{{"pay_ref_no"|translate}}</span>
+						 <span class="val fr">{{refNo}}</span>
+					 </div>
+					 <div class="outline-detail cf">
+						 <span class="key fl">{{"merchant"|translate}}</span>
+						 <span class="val fr">{{mcNameText}}</span>
+					 </div>
+					 <div class="outline-detail cf">
+						 <span class="key fl">{{"bill_type"|translate}}</span>
+						 <span class="val fr ng-hide" ng-show="btNameText==''">N/A</span>
+						 <span class="val fr ng-hide" ng-show="btNameText!=''">{{btNameText}}</span>
+					 </div>
+					 <div class="outline-detail cf ng-hide" ng-show="labelNameText!=''">
+						 <span class="key fl">{{labelNameText}}:</span>
+						 <span class="val fr">{{billAccountText}}</span>
+					 </div>
+					 <div class="outline-detail cf">
+						 <span class="key fl">{{"debitAccount"|translate}}</span>
+						 <span class="val fr">{{txtBillAccountText}}</span>
+					 </div>
+					 <div class="outline-detail cf">
+						 <span class="key fl">{{"payment_template_amount"|translate}}</span>
+						 <span class="val fr">HKD {{amountText}}</span>
+					 </div>
+					 <div class="outline-detail cf ng-hide" ng-show="operation=='TP'">
+						 <span class="key fl">{{"templateRemark"|translate}}</span>
+						 <span class="val fr">{{txtRemarkText}}</span>
+					 </div>
+					 <div class="outline-detail cf">
+						 <span class="key fl">{{"templateRemark"|translate}}</span>
+						 <span class="val fr">{{paymentDate}}</span>
+					 </div>
+				</div>
+			
+				<table style="width:100%;margin-top:30px;">
+					<tr>
+						<td>
+							<div class="red_btn" ng-click="goBack()">{{"next_transaction"|translate}}</div>
+						</td>
+					</tr>
+				</table>
+				
+			</div>
+		</div>	

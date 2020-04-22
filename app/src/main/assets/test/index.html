@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>菜鸟教程(runoob.com)</title>
+	<script>
+
+function getQueryVariable(variable)
+{
+document.getElementById("demo").innerHTML=getHtmlParameters(variable);
+}
+
+		function getHtmlParameters (name) {
+			var reg=new RegExp("(^|&)"+name+"=([^&]*)(&|$)");
+			var r=window.location.search.substr(1).match(reg);
+			if(r!=null) return decodeURI(r[2]);
+			return null;
+		}
+</script>
+</head>
+<body>
+
+<h1>我的第一个 JavaScript 程序</h1>
+<p id="demo">这是一个段落</p>
+
+<button type="button" onclick="getQueryVariable('filename')">显示参数</button>
+
+</body>
+</html>

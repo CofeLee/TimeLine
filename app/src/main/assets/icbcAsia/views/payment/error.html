@@ -1,0 +1,30 @@
+<div class="scrollable money-exchange deposit-outline" style="padding: 45px 0 0 0;" >
+  
+	<div class="scrollable-header">
+		<header class="index_header">
+	    	<div id="returnButton" class="go-back" ng-click="goBack()"></div>
+			<div class="header-title">
+				{{"errorcode"|translate}}
+			</div>
+		</header>
+	</div>	
+  <div class="scrollable-content">
+     
+     <div class="menu_list">   
+		<ctp:set name="exception" value="CTEException"/>
+        <div class="items cf">
+			<span class="key fl">{{"errorCode"|translate}}
+			</span> <span class="money-type fr">{{errorCode}}</span>
+		</div>
+		<div class="items cf">
+			<span class="key fl">{{"errorMessage"|translate}}
+			</span> <span class="money-type fr" id="errorMessage"></span>
+		</div>
+		<div class="items cf">
+			<div class="red_btn name" ng-click="goBack()">
+				{{"returnbutton"|translate}}
+			</div>
+		</div>
+    </div>
+  </div>
+</div>

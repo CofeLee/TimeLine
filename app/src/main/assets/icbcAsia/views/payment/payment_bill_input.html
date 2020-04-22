@@ -1,0 +1,159 @@
+<div class="scrollable money-exchange deposit-outline" >
+	<div class="scrollable-header">
+	    <header class="index_header">  
+		    <div id="returnButton" class="go-back" ng-click="goBack()"></div>
+		    <div class="header-title">{{"payment"|translate}}</div>
+	   	</header>
+	</div>
+	
+	<div class="scrollable-content ng-hide" ng-show="isShowContent">
+	
+		<div class="menu_list">
+	
+			<div class="items cf" style="line-height: 30px;">
+		        <div class="outline-detail cf">
+					<div class="fl">{{"bill_type"|translate}}</div>
+					<div class="sel-box money-type fr">{{selectedCat.catName}}
+	 					<select ng-change="changeCat()" ng-model="selectedCat" ng-options="ca.catName for ca in paymentCaList">
+						</select> <i class="fa"></i>
+					</div>
+				</div>
+				<div class="outline-detail cf">
+					<span class="key fl">{{"merchant"|translate}}</span>
+					<div class="sel-box money-type fr">{{selectedAmc.mcName}}
+						<select ng-change="changeAmc()" ng-model="selectedAmc" ng-options="amc.mcName for amc in paymentAmcList">
+						</select> <i class="fa"></i>
+					</div>
+				</div>
+				<div class="outline-detail cf ng-hide" ng-show="isShowmcBt">
+					<span class="key fl">{{"merchant"|translate}}<ctp:label key="payment_type_of"/></span>
+					<div class="sel-box money-type fr">{{selectedBt.btName}}
+						<select ng-model="selectedBt" ng-options="bt.btName for bt in paymentBtList">
+						</select> <i class="fa"></i>
+					</div>
+				</div>
+				<div class="outline-detail cf ng-hide" ng-show="isShowmcBity">
+					<span class="key fl">{{labelName}}:</span>
+					<div class="money-type fr">
+						<input type="text" ng-model="billAccount" style="text-align:right;font-weight: bold;color: black;"
+					 	required ng-focus maxlength="30" placeholder='{{"please_input"|translate}}'>
+					 </div>
+				</div>
+				
+				<div class="outline-detail cf ng-hide" ng-show="isShowmcCard">
+					<span class="key fl">{{"regcredit_label"|translate}}</span>
+					<div class="sel-box money-type fr" id="billAccount1div" style="font-weight: bold;color: black;">{{selectedCard.cardnumber}}
+						<select ng-change="changeCard()" ng-model="selectedCard" ng-disabled="isDisabledAcc1" ng-options="card.cardnumber for card in cardregInfoList">
+						<option value="">{{"select_note"|translate}}</option>
+						</select> <i class="fa"></i>
+					</div>
+				</div>
+				<div class="outline-detail cf ng-hide" ng-show="isShowmcCard" style="display: none !important;">
+					<span class="key fl">{{"unregcredit_label"|translate}}</span>
+					<span class="val fr ng-hide" ng-show="isShowCusttype" style="background-color: #ccc;">{{"iss.is.stock.safety.tips1"|translate}}</span>
+					<div class="money-type fr" ng-hide="isShowCusttype">
+						<input type="text" ng-blur="changeTxtCard()" id="billAccount2" ng-model="billAccount2" style="text-align:right;font-weight: bold;color: black;" ng-disabled="isDisabledAcc2"
+					 	required ng-focus maxlength="30" placeholder='{{"please_input"|translate}}' >
+					 </div>
+				</div>
+				
+      		</div>
+			      
+			<div class="items cf" style="line-height: 30px;margin-top:5px;">
+				<div class="outline-detail cf">
+			      	<span class="key fl">{{"debitAccount"|translate}}</span>
+					<div class="sel-box money-type fr">{{selectedAcc.MEDIUMIDShow}}&nbsp;{{selectedAcc.MAINPRODNAMESHOW}}
+						<select ng-change="creditCardCheck()" ng-model="selectedAcc" ng-options="acc.MEDIUMIDShow+'&nbsp;'+acc.MAINPRODNAMESHOW for acc in accList">
+						<option value="">{{"select_note"|translate}}</option>
+						</select> <i class="fa"></i>
+					</div>
+				</div>
+				<div class="outline-detail cf">
+			      	<span class="key fl">{{"payment_account_cur"|translate}}</span>
+					<span class="val fr">{{"common.HKD"|translate}}</span>
+				</div>
+				
+			</div>
+				
+			<div class="items cf" ng-hide="isHideBtnB">
+				<span class="fl">{{"balanceEnq"|translate}}</span> 
+				<div class="fr" style="width: auto;height:auto;padding-left: 5px;padding-right: 5px;padding-top:3px;padding-bottom:3px;border-radius: 4px;text-align: center;font-size: 12px;color: #fff;background-color: #ff7b7b;" ng-click="balanceEnq()">{{"pib.query"|translate}}</div>
+			</div>
+			
+			<!-- <div class="items cf ng-hide" ng-show="isHideBtnB">
+				<div class="outline-detail cf" style="line-height: 20px;">
+					<span class="key fl">{{"creditcard_cfm"|translate}}</span>
+				</div>
+			</div> --> 
+			
+			<div class="items cf ng-hide" ng-show="isShowEnq">
+				<div class="outline-detail cf" ng-show="isShowEnqHtml">
+					<span class="key fl">{{enqHtml}}</span>
+				</div>
+				<div class="outline-detail cf" ng-show="isShowRsHtml">
+					<span class="key fl">{{"mb.ds.as.availableBalance"|translate}}</span>
+					<span class="val fr">{{avabalHtml}}</span>
+				</div>
+				<div class="outline-detail cf" ng-show="isShowRsHtml">
+					<span class="key fl">{{"mb.ds.as.ledgerBalance"|translate}}</span>
+					<span class="val fr">{{balanceHtml}}</span>
+				</div>
+			</div>
+			
+			<div class="items cf ng-hide" ng-show="isShowBtnT">
+				<span class="fl">{{"checkQuotaAvailP"|translate}}</span><br/>
+				<div>
+					<span class="fl">{{quotaEnqTHtml}}</span>
+					<span class="fl">{{"availableQuota"|translate}}{{"common.HKD"|translate}} {{quotaRsTHtml}} {{"availableQuota2"|translate}}</span>
+				</div>
+			</div>
+			
+			<div class="items cf ng-hide" ng-show="isShowBtnP">
+				<span class="fl">{{"checkQuotaAvailT"|translate}}</span><br/>
+				<div>
+					<span class="fl">{{quotaEnqPHtml}}</span>
+					<span class="fl">{{"availableQuota"|translate}}{{"common.HKD"|translate}} {{quotaRsPHtml}} {{"availableQuota2"|translate}}</span>
+				</div>
+			</div>
+			
+			<div class="items cf" style="line-height: 30px;margin-top:5px;">
+				<div class="outline-detail cf">
+					<span class="key fl">{{"payment_template_amount"|translate}}</span>
+					<div class="money-type fr">
+						<input type="text" ng-model="txtAmount" style="text-align:right;font-weight: bold;color: black;"
+					 	required ng-focus maxlength="20" placeholder='{{"please_input"|translate}}' >
+					 </div>
+				</div>
+				<div class="outline-detail cf" ng-if="operation=='TP'">
+					<span class="key fl">{{"templateRemark"|translate}}</span>
+					<span class="val fr">{{txtRemark}}</span>
+				</div>
+				<div class="outline-detail cf">
+					<span class="key fl">{{"paymentDate"|translate}}</span>
+					<span class="val fr">{{paymentDate}}</span>
+				</div>
+			</div>
+		
+			<table style="width:100%;margin-top:20px;">
+				<tr>
+					<td style="width:30%;">
+						<div class="red_btn" ng-click="goBack()" ng-disabled="isDisabled">{{"returnbutton"|translate}}</div>
+					</td>
+					<td style="width:30%;">
+						<div class="red_btn" ng-click="reset()" ng-disabled="isDisabled">{{"btn_clear"|translate}}</div>
+					</td>
+					<td style="width:30%;">
+						<div class="red_btn" ng-click="submit()" ng-disabled="isDisabled">{{"payment_bill_submit"|translate}}</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:30%;">
+						<div class="red_btn" ng-click="test()" ng-disabled="isDisabled">test</div>
+					</td>					
+				</tr>
+			</table>
+		
+		</div>
+	
+	</div>
+</div>

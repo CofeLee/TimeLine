@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+				
+		<style type="text/css">
+			.btn_tips {
+			  width:70%;
+			  margin-bottom: 5px;
+			}
+			.balance_check_tips {
+			  width:70%; 
+			  font-size: 8pt; 
+			  margin-right: 15%; 
+			  margin-left: 15%; 
+			  background-color: #F2F2F2;
+			}
+			div[disabled="disabled"]{
+				pointer-events: none;
+			}
+		</style>
+		<link rel="stylesheet" href="/icbcWAP/abroadperbank/bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-hover.css"/>
+	    <!-- 以下为可选 -->
+	    <link rel="stylesheet" href="/icbcWAP/abroadperbank/bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-base.css"/>
+	    <link rel="stylesheet" href="/icbcWAP/abroadperbank/bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-desktop.css"/>
+	    <link rel="stylesheet" href="/icbcWAP/abroadperbank/bower_components/angular-carousel/dist/angular-carousel.css"/>
+	    <link href="/icbcWAP/abroadperbank/css/main.css" rel="stylesheet">
+	    <link rel="stylesheet" href="/icbcWAP/abroadperbank/bower_components/angular-slider/slider.css">
+	    <script src="/icbcWAP/abroadperbank/bower_components/jquery/dist/jquery.js"></script>	    
+		<script type="text/javascript" src="/icbcWAP/abroadperbank/bower_components/angular/angular.js"></script>
+		<script type="text/javascript" src="/icbcWAP/abroadperbank/bower_components/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="/icbcWAP/abroadperbank/js/pub/mobile.js"></script>
+		<script src="/icbcWAP/abroadperbank/js/icbc_core.js"></script>
+		<script type="text/javascript" src="/icbcAsia/js/angular-translate.min.js"></script>
+		<script type="text/javascript" src="/icbcAsia/js/angular-translate-loader-static-files.min.js"></script>
+		<script type="text/javascript" src="/icbcAsia/js/util/common.js"></script>
+		<script type="text/javascript" src="/icbcAsia/js/app.js"></script>
+	</head>
+	<body style="MARGIN: 0px" ng-app="paymentRegBill" ng-controller="paymentBillRegController">	
+		<div class="app">
+			<div class="app-body" ng-class="{loading: loading}">
+				<div ng-show="loading" class="app-content-loading ">
+					<em class="fa fa-spinner fa-spin loading-spinner"></em>
+				</div>
+				<div class="app-content">
+					<ng-view></ng-view>
+				</div>
+			</div>
+		</div>
+	
+		<form name="paymentMenu" id="paymentMenu" action="<%= postUrl %>">
+			<input type="hidden" name="dse_sessionId" value="<%= sessionId %>" />
+			<input type="hidden" name="url" value="<%=request.getContextPath() %>/paymentbill.flowc?flowActionName=init" />
+		</form>
+		
+		<form name="paymentTempForm" id="paymentTempForm" action="<%= postUrl %>">
+			<input type="hidden" name="dse_sessionId" value="<%= sessionId %>" />
+			<input type="hidden" name="url" value="<%=request.getContextPath() %>/paymenttemplate.flowc?flowActionName=init" />
+		</form>
+		
+		<form name="addCfmForm" id="addCfmForm" action="<%= postUrl %>">
+			<input type="hidden" name="debitAccount" value="" />
+			<input type="hidden" name="merchantCode" value="" />
+			<input type="hidden" name="btCd" value="" />
+			<input type="hidden" name="txtBillAccount" value="" />
+			<input type="hidden" name="billTypeCode" value="" />
+			<input type="hidden" name="txtAmount" value="" />
+			<input type="hidden" name="txtAmt" value="" />
+			<input type="hidden" name="TINYPAYFLG" value="" />
+			<input type="hidden" name="typeFlag" value="" />
+			<input type="hidden" name="medtype" value="" />
+			
+			<input type="hidden" name="mcNameText" value="" />
+			<input type="hidden" name="btNameText" value="" />
+			<input type="hidden" name="labelNameText" value="" />
+			<input type="hidden" name="billAccountText" value="" />
+			<input type="hidden" name="txtBillAccountText" value="" />
+			<input type="hidden" name="amountText" value="" />
+			<input type="hidden" name="txtRemarkText" value="" />
+			<input type="hidden" name="paymentDate" value="" />
+			
+			<input type="hidden" name="outAccount" value="" />
+			<input type="hidden" name="hostcode" value="" />
+			<input type="hidden" name="accType" value="" />
+			<input type="hidden" name="labelName" value="" />
+			<input type="hidden" name="highRisk" value="" />
+			
+			<input type="hidden" name="netCode" value="" />
+			<input type="hidden" name="outproductid" value="" />
+			<input type="hidden" name="outproductno" value="" />
+			<input type="hidden" name="outsubproductid" value="" />
+			<input type="hidden" name="outsubproductno" value="" />
+			<input type="hidden" name="prodtype" value="" />
+			<input type="hidden" name="prodseno" value="" />
+			<input type="hidden" name="protseno" value="" />
+			<input type="hidden" name="trantype" value="" />
+		
+			<input type="hidden" name="isSubEnc" value="" />
+			<input type="hidden" name="operation" value="" />
+			<input type="hidden" name="dse_sessionId" value="<%= sessionId %>" />
+			<input type="hidden" name="url" value="<%=request.getContextPath() %>/paymentbill.flowc?flowActionName=inputBillCfm" />
+		</form>
+		
+		<form name="modifyContactInfoForm" action="/servlet/ICBCINBSCenter" method="post">
+			<input name="StepNum" type="hidden"  value="100"/>
+			<input name="id" type="hidden" value="0683" />
+			<input type="hidden" id="dse_sessionId" name="dse_sessionId" value="<%=sessionId%>">
+			<input type="hidden" id="dse_applicationId" name="dse_applicationId" value="-1">
+			<input type="hidden" id="dse_pageId" name="dse_pageId" value="1">
+		</form>
+		
+		<!-- <%@ include file="/payment/paymentbill/payment_bill_init_js.jsp"%> -->
+		<script type="text/javascript" src="/icbcAsia/js/payment/payment_bill_init.js"></script>
+	</body>
+	</html>

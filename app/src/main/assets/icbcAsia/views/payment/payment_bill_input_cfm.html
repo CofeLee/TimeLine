@@ -1,0 +1,149 @@
+<div class="scrollable money-exchange deposit-outline" >
+			<div class="scrollable-header">
+				<header class="index_header">  
+					<div id="returnButton" class="go-back" ng-click="goBack()"></div>
+					<div class="header-title ng-hide" ng-show="isShowContent">{{"payment"|translate}}</div>
+				   </header>
+			</div>
+			
+			<div class="scrollable-content ng-hide" ng-show="isShowContent">
+			
+				<div class="items cf" style="line-height: 30px;">
+					 <div class="outline-detail cf">
+						 <span class="key fl">{{"merchant"|translate}}</span>
+						 <span class="val fr">{{mcNameText}}</span>
+					 </div>
+					 <div class="outline-detail cf">
+						 <span class="key fl">{{"bill_type"|translate}}</span>
+						 <span class="val fr">{{btNameText}}</span>
+					 </div>
+					 <div class="outline-detail cf ng-hide" ng-show="labelNameText!=''">
+						 <span class="key fl">{{labelNameText}}:</span>
+						 <span class="val fr">{{billAccountText}}</span>
+					 </div>
+					 <div class="outline-detail cf">
+						 <span class="key fl">{{"debitAccount"|translate}}</span>
+						 <span class="val fr">{{txtBillAccountText}}</span>
+					 </div>
+					 <div class="outline-detail cf">
+						 <span class="key fl">{{"payment_template_amount"|translate}}</span>
+						 <span class="val fr">HKD {{amountText}}</span>
+					 </div>
+					 <div class="outline-detail cf ng-hide" ng-show="operation=='TP'">
+						 <span class="key fl">{{"templateRemark"|translate}}</span>
+						 <span class="val fr">{{txtRemarkText}}</span>
+					 </div>
+					 <div class="outline-detail cf">
+						 <span class="key fl">{{"paymentDate"|translate}}</span>
+						 <span class="val fr">{{paymentDate}}</span>
+					 </div>
+				</div>
+				
+				<form id="mainForm" name="mainForm"  action="<%=postUrl%>">
+				
+					<ctp:if test="isSubEnc==1">
+					
+						<div class="listcontent_single">
+								
+													  
+						</div>
+						
+						<input type="hidden" id="authenticationFlag" name="authenticationFlag" value="authentication" />
+						<input type="hidden" name="dse_icbca_sessionId" value="<%=urlHead%>" />
+						
+					</ctp:if>
+					<ctp:else>
+					
+						<div class="items cf">
+							  <span class="fl">{{"payment.login.password"|translate}}</span>
+							  <span class="fr">
+								  <input type="password" size="20" class="static input fr" placeHolder='{{"please_input"|translate}}' id="enc_static_pass" name="enc_static_pass" value="" style="text-align: right;"></input>
+							  </span>
+							  <input type="hidden" class="static" name="static_pass_MinLength" value="{{sessCtx.static_pass_MinLength}}"/>
+							  <input type="hidden" class="static" name="static_pass_MaxLength" value="{{sessCtx.static_pass_MinLength}}"/>
+							  <input type="hidden" class="static" name="static_pass_Rule" value="{{sessCtx.static_pass_Rule}}"/>
+							  <input type="hidden" class="static" name="static_pass_randomId" value="{{sessCtx.static_pass_randomId}}"/>
+							  <input type="hidden" class="static" name="static_pass_vLen" value="{{sessCtx.static_pass_vLen}}"/>
+						  </div>
+						  
+						  <ctp:if test="passErrorTag==1">
+							  <div class="listcontent_single" style="color:red;line-height: 25px;">
+							&nbsp;&nbsp;{{TranErrorCode}} - {{TranErrorDisplayMsg}}
+							</div>
+						  </ctp:if>
+						  
+					</ctp:else>
+					
+					<input type="hidden" name="M_RANDOM" value="<%=Function.getRandomNum(20)%>"/>
+					<input type="hidden" name="debitAccount" value="<ctp:out name='debitAccount' />" />
+					<input type="hidden" name="merchantCode" value="<ctp:out name='merchantCode' />" />
+					<input type="hidden" name="btCd" value="<ctp:out name='btCd' />" />
+					<input type="hidden" name="txtBillAccount" value="<ctp:out name='txtBillAccount' />" />
+					<input type="hidden" name="billTypeCode" value="<ctp:out name='billTypeCode' />" />
+					<input type="hidden" name="txtAmount" value="<ctp:out name='txtAmount' />" />
+					<input type="hidden" name="txtAmt" value="<ctp:out name='txtAmt' />" />
+					<input type="hidden" name="TINYPAYFLG" value="<ctp:out name='TINYPAYFLG' />" />
+					<input type="hidden" name="typeFlag" value="<ctp:out name='typeFlag' />" />
+					<input type="hidden" name="medtype" value="<ctp:out name='medtype' />" />
+					<input type="hidden" name="highRisk" value="<ctp:out name='highRisk' />" />
+					
+					<input type="hidden" name="mcNameText" value="{{mcNameText}}" />
+					<input type="hidden" name="btNameText" value="<ctp:out name='btNameText' />" />
+					<input type="hidden" name="labelNameText" value="<ctp:out name='labelNameText' />" />
+					<input type="hidden" name="billAccountText" value="<ctp:out name='billAccountText' />" />
+					<input type="hidden" name="txtBillAccountText" value="<ctp:out name='txtBillAccountText' />" />
+					<input type="hidden" name="amountText" value="<ctp:out name='amountText' />" />
+					<input type="hidden" name="txtRemarkText" value="<ctp:out name='txtRemarkText' />" />
+					<input type="hidden" name="paymentDate" value="<ctp:out name='paymentDate' />" />
+					
+					<input type="hidden" name="netCode" value="<ctp:out name='netCode' />" />
+					<input type="hidden" name="outproductid" value="<ctp:out name='outproductid' />" />
+					<input type="hidden" name="outproductno" value="<ctp:out name='outproductno' />" />
+					<input type="hidden" name="outsubproductid" value="<ctp:out name='outsubproductid' />" />
+					<input type="hidden" name="outsubproductno" value="<ctp:out name='outsubproductno' />" />
+					<input type="hidden" name="prodtype" value="<ctp:out name='prodtype' />" />
+					<input type="hidden" name="prodseno" value="<ctp:out name='prodseno' />" />
+					<input type="hidden" name="protseno" value="<ctp:out name='protseno' />" />
+					<input type="hidden" name="trantype" value="<ctp:out name='trantype' />" />
+					
+					<input type="hidden" name="ACC_NO" value="" />
+					<input type="hidden" name="outAccount" value="<ctp:out name='outAccount' />" />
+					<input type="hidden" name="MDCARDNOMSG" value="" />
+					<input type="hidden" name="version" value="0" />
+					<input type="hidden" name="isSubEnc" value="<ctp:out name='isSubEnc' />" />
+					
+					<input type="hidden" name="operation" value="<ctp:out name='operation' />" />
+					<input type="hidden" name="dse_sessionId" value="<%= sessionId %>" />
+					<input type="hidden" name="url" value="<%=request.getContextPath() %>/paymentbill.flowc?flowActionName=cfmPayment" />
+				</form>
+			
+				<table style="width:100%;margin-top:20px;">
+					<tr>
+						<td style="width:50%;">
+							<div class="red_btn" ng-click="goBack()" ng-disabled="isDisabled">{{"creditCardEdit"|translate}}</div>
+						</td>
+						<td style="width:50%;">
+							<div class="red_btn" ng-click="cfmSubmit()" ng-disabled="isDisabled">{{"Confirm"|translate}}</div>
+						</td>
+					</tr>
+				</table>
+				
+			</div>
+		</div>
+		
+		<form name="backForm" id=backForm action="<%= postUrl %>">
+			<input type="hidden" name="userRef" value="<ctp:out name='txtRemarkText' />" />
+			<input type="hidden" name="drAc" value="<ctp:out name='outAccount' />" />
+			<input type="hidden" name="amt" value="<ctp:out name='txtAmt' />" />
+			<input type="hidden" name="mcode" value="<ctp:out name='merchantCode' />" />
+			<input type="hidden" name="billNo" value="<ctp:out name='txtBillAccount' />" />
+			<input type="hidden" name="btCd" value="<ctp:out name='btCd' />" />
+			<input type="hidden" name="hostCd" value="<ctp:out name='hostcode' />" />
+			<input type="hidden" name="accType" value="<ctp:out name='accType' />" />
+			<input type="hidden" name="labelName" value="<ctp:out name='labelName' />" />
+			<input type="hidden" name="isUpdate" value="Y" />
+			<input type="hidden" name="operation" value="<ctp:out name='operation' />" />
+			<input type="hidden" name="dse_sessionId" value="<%= sessionId %>" />
+			<input type="hidden" name="url" value="<%=request.getContextPath() %>/paymentbill.flowc?flowActionName=paymentInit" />
+		</form>
+		
