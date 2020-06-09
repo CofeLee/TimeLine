@@ -25,6 +25,7 @@
         <activity android:name=".Activity.YugeActivity"/>
         <activity android:name=".Activity.MenuActivity"/>
         <activity android:name=".Activity.CacheActivity"/>
+        <activity android:name=".Activity.BindActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
