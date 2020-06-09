@@ -26,6 +26,7 @@
         <activity android:name=".Activity.MenuActivity"/>
         <activity android:name=".Activity.CacheActivity"/>
         <activity android:name=".Activity.BindActivity"/>
+        <activity android:name=".Activity.AntiShakeActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

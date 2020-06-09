@@ -37,8 +37,4 @@ public class BaseActivity extends AppCompatActivity {
         }
         return result;
     }
-
-    public static void main(String[] args) {
-        System.out.println("15501213728".substring(0, "15501213728".length()-4));
-    }
 }

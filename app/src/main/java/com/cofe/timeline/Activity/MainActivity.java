@@ -9,13 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cofe.timeline.Base.AntiShakeClick;
 import com.cofe.timeline.Base.BaseActivity;
 import com.cofe.timeline.R;
 
 public class MainActivity extends BaseActivity {
 
     private TextView result;
-    private Button test, to_revolve, to_drawline, to_calculate, to_slide, to_yuge, to_menu, to_cache, to_bind;
+    private Button test, to_revolve, to_drawline, to_calculate, to_slide, to_yuge, to_menu, to_cache, to_bind, to_antiShake;
     private boolean canpr = true;
 
     private long exitTime = 0;
@@ -39,6 +40,7 @@ public class MainActivity extends BaseActivity {
         to_menu = findViewById(R.id.to_menu);
         to_cache = findViewById(R.id.to_cache);
         to_bind = findViewById(R.id.to_bind);
+        to_antiShake = findViewById(R.id.to_antiShake);
 
         to_yuge.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +98,12 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+        to_antiShake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AntiShakeActivity.class));
+            }
+        });
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
