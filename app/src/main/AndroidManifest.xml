@@ -7,7 +7,8 @@
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeNew">
+        android:theme="@style/AppThemeNew"
+        android:usesCleartextTraffic="true">
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,16 +19,19 @@
 
         <activity
             android:name=".Activity.RevolveActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"/>
-        <activity android:name=".Activity.DrawLineActivity"/>
-        <activity android:name=".Activity.CalculateActivity"/>
-        <activity android:name=".Activity.SlideActivity"/>
-        <activity android:name=".Activity.YugeActivity"/>
-        <activity android:name=".Activity.MenuActivity"/>
-        <activity android:name=".Activity.CacheActivity"/>
-        <activity android:name=".Activity.BindActivity"/>
-        <activity android:name=".Activity.AntiShakeActivity"/>
+            android:configChanges="keyboardHidden|screenSize|orientation" />
+        <activity android:name=".Activity.DrawLineActivity" />
+        <activity android:name=".Activity.CalculateActivity" />
+        <activity android:name=".Activity.SlideActivity" />
+        <activity android:name=".Activity.YugeActivity" />
+        <activity android:name=".Activity.MenuActivity" />
+        <activity android:name=".Activity.CacheActivity" />
+        <activity android:name=".Activity.BindActivity" />
+        <activity android:name=".Activity.AntiShakeActivity" />
+        <activity android:name=".Activity.ThreadPoolActivity" />
+        <activity android:name=".Activity.WebViewActivity" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>

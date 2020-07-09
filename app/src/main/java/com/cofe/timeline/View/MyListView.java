@@ -42,4 +42,20 @@ public class MyListView extends ListView {
         }
         return super.dispatchTouchEvent(ev);
     }
+
+    public static void main(String[] args) {
+    }
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        new ListNode(l1.val+l2.val);
+        return l1.next;
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
 }

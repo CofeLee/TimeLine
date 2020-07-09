@@ -16,7 +16,7 @@ import com.cofe.timeline.R;
 public class MainActivity extends BaseActivity {
 
     private TextView result;
-    private Button test, to_revolve, to_drawline, to_calculate, to_slide, to_yuge, to_menu, to_cache, to_bind, to_antiShake;
+    private Button test, to_revolve, to_drawline, to_calculate, to_slide, to_yuge, to_menu, to_cache, to_bind, to_antiShake, to_threadPool, to_webview;
     private boolean canpr = true;
 
     private long exitTime = 0;
@@ -41,6 +41,8 @@ public class MainActivity extends BaseActivity {
         to_cache = findViewById(R.id.to_cache);
         to_bind = findViewById(R.id.to_bind);
         to_antiShake = findViewById(R.id.to_antiShake);
+        to_threadPool = findViewById(R.id.to_threadPool);
+        to_webview = findViewById(R.id.to_webview);
 
         to_yuge.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +106,21 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this, AntiShakeActivity.class));
             }
         });
+
+        to_threadPool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ThreadPoolActivity.class));
+            }
+        });
+
+        to_webview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, WebViewActivity.class));
+            }
+        });
+
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

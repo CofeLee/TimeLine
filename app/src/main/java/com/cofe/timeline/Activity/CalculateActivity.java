@@ -89,7 +89,6 @@ public class CalculateActivity extends BaseActivity {
 
         DecimalFormat df = new DecimalFormat("#.00");
         df.format(result);
-        String str = "";
-        total_money.setText(str);
+        total_money.setText(result + "");
     }
 }
