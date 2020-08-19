@@ -30,6 +30,7 @@
         <activity android:name=".Activity.AntiShakeActivity" />
         <activity android:name=".Activity.ThreadPoolActivity" />
         <activity android:name=".Activity.WebViewActivity" />
+        <activity android:name=".Activity.UIActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

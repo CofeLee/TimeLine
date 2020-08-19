@@ -112,6 +112,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="WebView Demo" />
+
+            <Button
+                android:id="@+id/to_ui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="UI Demo" />
+
+            <Button
+                android:id="@+id/goto_icbc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="GO TO ICBC" />
+
+            <Button
+                android:id="@+id/open_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="open_dialog" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
